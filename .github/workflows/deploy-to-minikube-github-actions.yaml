@@ -29,3 +29,7 @@ jobs:
         run:
           kubectl get pods
           kubectl get svc
+      - name: Test service URLs
+        run: |
+          minikube service list
+          minikube service nodejs-app --url || echo "Service cannot be accessed in CI"
