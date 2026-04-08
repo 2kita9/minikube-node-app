@@ -26,9 +26,10 @@ jobs:
       - name: Deploy to Kubernetes
         run: kubectl apply -f k8s-node-app.yaml
       - name: Verify
-        run:
+        run: |
           kubectl get pods
           kubectl get svc
+
       - name: Test service URLs
         run: |
           minikube service list
